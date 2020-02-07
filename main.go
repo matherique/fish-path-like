@@ -22,12 +22,17 @@ func main() {
 
 	var fc []string
 	// get only first char and add to slice
-	for _, p := range ss {
+
+	last := len(ss) - 1
+
+	for _, p := range ss[last-1 : last] {
 		if p != "" {
 			fc = append(fc, p[0:1])
 		}
-
 	}
+
+	fc = append(fc, ss[last])
+
 	// join the result by /
 	result := strings.Join(fc, string(filepath.Separator))
 
