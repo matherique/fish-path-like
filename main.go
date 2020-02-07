@@ -25,7 +25,7 @@ func main() {
 
 	last := len(ss) - 1
 
-	for _, p := range ss[last-1 : last] {
+	for _, p := range ss[0:last] {
 		if p != "" {
 			fc = append(fc, p[0:1])
 		}
