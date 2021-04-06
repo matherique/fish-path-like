@@ -15,7 +15,13 @@ func main() {
 		log.Fatalf("could not get absolute file path: %v", err)
 	}
 
-	result := ConvertPath(dpa, os.Getenv("HOME"))
+	home, env := os.UserHomeDir()
+
+	if env != nil {
+		log.Fatalf("could not get user home dir: %v", err)
+	}
+
+	result := ConvertPath(dpa, home)
 
 	fmt.Fprintf(os.Stdout, result)
 }
